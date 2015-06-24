@@ -16,7 +16,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
         <th>Billings</th>
     </tr>
     <?php
-        foreach ($conn->query('SELECT * FROM client') as $row) {
+        foreach ($conn->query('SELECT * FROM clients') as $row) {
     ?>
     <tr>
     <?php
