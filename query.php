@@ -1,30 +1,37 @@
 <?php
 
-// this is to set connection variables
+//set connection variables
 $servername = "localhost";
 $username   = "root";
 $password   = "";
 $dbname     = "client invoicing problem";
 
-// this is to create the connection
+//create the connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 ?>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Transactions</th>
-        <th>Billings</th>
-    </tr>
+
+<!--table for the records-->
+<table class="table table-bordered table-striped" data-provide="datagrid">
+	<thead>	
+		<tr>
+			<th>Name</th>
+			<th>Transactions</th>
+			<th>Billings</th>
+		</tr>
+	</thead>
+	<tbody>	
     <?php
+		//create a row on table for each record
         foreach ($conn->query('SELECT * FROM clients') as $row) {
     ?>
     <tr>
     <?php
-        //to calculate the transactions
+        //get the transactions
         $nTransactions = $row['Transactions'];
       
-        // to calculate the billing
+        //calculate the billing
         $nBilling = .50 * $nTransactions;
+		
         // if transactions is more than 50 times
         if ($nTransactions > 50.00) {
             $nBilling = ($nTransactions - 50.00) * .75 + .50 * 50.00;
@@ -36,11 +43,12 @@ $conn = new mysqli($servername, $username, $password, $dbname);
         <td>
             <?php echo $nTransactions;?> 
         </td>
-        <td>
-            <?php echo $nBilling;?> 
+		<!--display the billings with curreny format-->
+        <td>$ <?php echo number_format($nBilling, 2, '.', '') ;?> 
         </td>
     </tr>
     <?php
     }
     ?>
+	</tbody>	
 </table>
