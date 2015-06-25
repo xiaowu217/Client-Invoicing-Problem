@@ -1,6 +1,6 @@
 # Client-Invoicing-Problem
 
-This is my solution to the client invoicing problem.
+This is for the client invoicing report.
 
 To install this solution, please follow these steps.
 
