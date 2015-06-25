@@ -12,6 +12,6 @@ To install this solution, please follow these steps.
 
 4.  Open a browser and go to the URL `http://localhost`. In XAMPP homepage, go to `phpMyAdmin`.
 
-5.  Create a new database named `client invoicing problem`, and then import file `clients.sql` from the solution folder.
+5.  Create a new database named `client invoicing problem`, select `utf8_unicode_ci` for Collation and then import file `clients.sql` from the solution folder.
 
 6.  Open another tab in browser and go to the URL `http://localhost/client-invoicing-problem-master/`. You will see the solution page.
